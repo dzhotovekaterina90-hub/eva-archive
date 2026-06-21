@@ -1,0 +1,8 @@
+{
+  "name": "eva-personal-archive",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-content.mjs"
+  }
+}

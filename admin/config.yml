@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: dzhotovekaterina90-hub/eva-archive
+  branch: main
+  base_url: /api
+  auth_endpoint: auth
+  use_graphql: true
+
+local_backend: true
+locale: zh_Hans
+media_folder: public/uploads
+public_folder: /public/uploads
+
+collections:
+  - name: reports
+    label: 周报
+    label_singular: 周报
+    folder: content/reports
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date, title]
+    summary: "{{date}} · {{title}}"
+    fields: &content_fields
+      - { label: 标题, name: title, widget: string }
+      - { label: 日期, name: date, widget: datetime, date_format: YYYY-MM-DD, time_format: false, format: YYYY-MM-DD }
+      - label: 类型
+        name: type
+        widget: select
+        options:
+          - { label: 周报, value: weekly }
+          - { label: 月报, value: monthly }
+          - { label: 特别记录, value: special }
+      - { label: 封面, name: cover, widget: image, required: false }
+      - { label: 标签, name: tags, widget: list, required: false, default: [] }
+      - { label: 摘要, name: summary, widget: text }
+      - { label: 正文, name: body, widget: markdown }
+
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: content/projects
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: *content_fields
+
+  - name: experiments
+    label: Experiments
+    label_singular: Experiment
+    folder: content/experiments
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: *content_fields
+
+  - name: writing
+    label: Writing
+    label_singular: Article
+    folder: content/writing
+    create: true
+    delete: true
+    extension: md
+    format: frontmatter
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields: *content_fields

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EVA — Interactive Archive">
+  <title>EVA Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="entrance" class="entrance" aria-label="EVA archive entrance">
+    <div class="entrance-scene" aria-hidden="true"></div>
+    <div class="identity"><span>EVA</span><i></i></div>
+    <canvas id="entranceParticles" aria-hidden="true"></canvas>
+    <button class="activation" id="activation" aria-label="进入 EVA 档案馆">
+      <span class="hover-ring ring-a"></span>
+      <span class="hover-ring ring-b"></span>
+      <span class="enter-label">ENTER</span>
+    </button>
+    <div class="entrance-flash" aria-hidden="true"></div>
+  </main>
+
+  <section id="archive" class="archive" aria-label="互动档案馆" aria-hidden="true">
+    <aside class="bookshelf-panel">
+      <header class="archive-mark">
+        <button id="backToEntrance" aria-label="返回入口">EVA</button>
+        <span>PRIVATE ARCHIVE</span>
+      </header>
+
+      <div class="shelf-heading">
+        <span>ARCHIVE SHELF</span>
+        <b id="archiveCount">01 / 03</b>
+      </div>
+
+      <div class="shelf-window">
+        <div class="shelf-shadow shelf-shadow-top"></div>
+        <div id="bookshelf" class="bookshelf" role="listbox" aria-label="档案书架"></div>
+        <div class="shelf-shadow shelf-shadow-bottom"></div>
+      </div>
+
+      <article id="archiveDetail" class="archive-detail" aria-live="polite">
+        <div class="detail-meta"><b id="detailCode">A-001</b><i></i></div>
+        <h1 id="detailTitle">周报</h1>
+        <p id="detailSummary">记录每周的进展、观察、复盘与下一步行动。</p>
+        <div id="reportList" class="report-list" aria-label="最新周报"></div>
+      </article>
+    </aside>
+
+    <div class="companion-scene">
+      <div id="companion" class="companion">
+        <img class="companion-frame companion-open" src="assets/archive-companion-open.png" alt="数字伙伴手持一本无字黑色档案书，与你一同翻阅档案">
+        <img class="companion-frame companion-blink" src="assets/archive-companion-blink.png" alt="" aria-hidden="true">
+      </div>
+      <div class="book-motion" aria-hidden="true"></div>
+      <canvas id="archiveParticles" aria-hidden="true"></canvas>
+      <div class="scene-vignette" aria-hidden="true"></div>
+      <div class="companion-caption"><i></i><span id="companionLine">你想先从哪一卷开始？</span></div>
+    </div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

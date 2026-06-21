@@ -2,8 +2,8 @@ backend:
   name: github
   repo: dzhotovekaterina90-hub/eva-archive
   branch: main
-  base_url: /api
-  auth_endpoint: auth
+  base_url: https://eva-seven-opal.vercel.app
+  auth_endpoint: api/auth
   use_graphql: true
 
 local_backend: true

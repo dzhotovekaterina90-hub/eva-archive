@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Noto+Sans+SC:wght@300;400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
   <main id="entrance" class="entrance" aria-label="EVA archive entrance">
@@ -46,13 +46,14 @@
         <h1 id="detailTitle">周报</h1>
         <p id="detailSummary">记录每周的进展、观察、复盘与下一步行动。</p>
         <div id="reportList" class="report-list" aria-label="最新周报"></div>
+        <button id="openCurrentArchive" class="open-current-archive" type="button">OPEN ARCHIVE →</button>
       </article>
     </aside>
 
     <div class="companion-scene">
       <div id="companion" class="companion">
-        <img class="companion-frame companion-open" src="assets/archive-companion-open.png" alt="数字伙伴手持一本无字黑色档案书，与你一同翻阅档案">
-        <img class="companion-frame companion-blink" src="assets/archive-companion-blink.png" alt="" aria-hidden="true">
+        <img class="companion-frame companion-open" src="/assets/archive-companion-open.png" alt="数字伙伴手持一本无字黑色档案书，与你一同翻阅档案">
+        <img class="companion-frame companion-blink" src="/assets/archive-companion-blink.png" alt="" aria-hidden="true">
       </div>
       <div class="book-motion" aria-hidden="true"></div>
       <canvas id="archiveParticles" aria-hidden="true"></canvas>
@@ -61,6 +62,67 @@
     </div>
   </section>
 
-  <script src="app.js"></script>
+  <section id="readingChamber" class="reading-chamber" aria-label="Archive Reading Chamber" aria-hidden="true">
+    <div class="chamber-background" aria-hidden="true"></div>
+    <div class="chamber-light" aria-hidden="true"></div>
+    <canvas id="readerParticles" aria-hidden="true"></canvas>
+
+    <header class="reader-header">
+      <button id="readerBack" class="reader-back" type="button">← Archive</button>
+      <div class="reader-current" aria-live="polite">
+        <span id="readerTopCode">ARCHIVE A-025</span>
+        <i aria-hidden="true"></i>
+        <strong id="readerTopTitle">WEEK 25</strong>
+        <time id="readerTopDate">2026.06.21</time>
+        <em id="readerTopType">WEEKLY REPORT</em>
+      </div>
+    </header>
+
+    <div class="lectern-stage">
+      <div id="archiveVolume" class="archive-volume" aria-label="打开的档案">
+        <section class="archive-page archive-page-left">
+          <div class="page-corner">EVA ARCHIVE</div>
+          <div class="archive-seal" aria-hidden="true"><span>EVA</span></div>
+          <div class="archive-metadata">
+            <span class="metadata-label">ARCHIVE RECORD</span>
+            <b id="readerCode">A-025</b>
+            <h1 id="readerTitle">WEEK 25</h1>
+            <dl>
+              <div><dt>DATE</dt><dd id="readerDate">2026.06.21</dd></div>
+              <div><dt>AUTHOR</dt><dd id="readerAuthor">EVA</dd></div>
+              <div><dt>TYPE</dt><dd id="readerType">WEEKLY REPORT</dd></div>
+            </dl>
+            <div id="readerTags" class="reader-tags"></div>
+          </div>
+          <span class="page-number page-number-left">ARCHIVE COPY</span>
+        </section>
+
+        <section class="archive-page archive-page-right">
+          <div class="page-corner">RECOVERED RECORD</div>
+          <article id="readerBody" class="reader-body" aria-live="polite"></article>
+          <span id="readerFolio" class="page-number">01</span>
+        </section>
+      </div>
+    </div>
+
+    <footer class="reader-footer">
+      <nav class="reader-pagination" aria-label="档案分页">
+        <button id="previousPage" type="button">← Previous</button>
+        <span id="pageIndicator">Page 1 / 1</span>
+        <button id="nextPage" type="button">Next →</button>
+      </nav>
+      <button id="returnArchive" class="return-archive" type="button">Return to Archive</button>
+    </footer>
+
+    <div id="readerIntro" class="reader-intro" aria-hidden="true">
+      <div>
+        <span id="introCode">ARCHIVE A-025</span>
+        <strong id="introType">WEEKLY REPORT</strong>
+        <time id="introDate">2026.06.21</time>
+      </div>
+    </div>
+  </section>
+
+  <script src="/app.js"></script>
 </body>
 </html>

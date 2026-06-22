@@ -6,6 +6,6 @@
   "rewrites": [
     { "source": "/admin", "destination": "/admin/index.html" },
     { "source": "/data/:file", "destination": "/public/data/:file" },
-    { "source": "/archive/:slug", "destination": "/index.html" }
+    { "source": "/archive/:slug", "destination": "/" }
   ]
 }
